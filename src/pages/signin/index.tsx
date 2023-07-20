@@ -45,7 +45,7 @@ const SignIn = () => {
         login(email, password).then(
             () => {
                 navigate("/todo")
-                window.location.reload()
+                // window.location.reload()
             },
             (error) => {
                 const resMessage =
