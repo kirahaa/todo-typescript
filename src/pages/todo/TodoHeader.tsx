@@ -1,6 +1,9 @@
 import styled from "@emotion/styled";
+import {useTodoState} from "../../store/TodoContext";
 
 const TodoHeader = () => {
+    const todos = useTodoState()
+    const undoneTasks = todos.filter(todo => !todo.isCompleted)
 
     const today = new Date()
     const dateString = today.toLocaleDateString('ko-KR', {
@@ -14,7 +17,7 @@ const TodoHeader = () => {
         <TodoHeaderBlock>
             <h1>{dateString}</h1>
             <div className="day">{dayName}</div>
-            <div className="tasks-left">할 일 {0}개 남음</div>
+            <div className="tasks-left">할 일 {undoneTasks.length}개 남음</div>
         </TodoHeaderBlock>
     )
 }
