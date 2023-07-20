@@ -1,4 +1,4 @@
-import {Route, Routes} from "react-router-dom";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 import MainLayout from "../components/layout/MainLayout";
 import AuthLayout from "../components/layout/AuthLayout";
 import Signup from "../pages/signup";
@@ -7,6 +7,7 @@ import SignIn from "../pages/signin";
 
 const Router = () => {
     return (
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Routes>
             <Route element={<MainLayout />}>
                 <Route path="/" element={<Todo />}/>
@@ -17,6 +18,7 @@ const Router = () => {
                 <Route path="/signin" element={<SignIn />}/>
             </Route>
         </Routes>
+      </BrowserRouter>
     )
 }
 export default Router
